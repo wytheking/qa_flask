@@ -1,0 +1,12 @@
+{# flash 消息 #}
+<!-- 消息通知区域 -->
+{% for category, message in get_flashed_messages(with_categories=True) %}
+<div class="alert alert-{{ category }} alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">×</span></button>
+    {% autoescape false %}
+    <span>{{ message }}</span>
+    {% endautoescape %}
+</div>
+{% endfor %}
+<!-- // 消息通知区域 -->

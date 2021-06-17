@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>在线问答系统-个人中心</title>
+
+  <!-- Bootstrap -->
+  <link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+      <script src="./assets/plugins/html5shiv.min.js"></script>
+      <script src="./assets/plugins/respond.min.js"></script>
+    <![endif]-->
+
+  <link rel="stylesheet" href="./assets/style/common.css">
+  <link rel="stylesheet" href="./assets/style/mine.css">
+</head>
+
+<body class="layout">
+  <!-- 顶部导航 -->
+  <div class="layout-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#id-index-banner"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../qa/templates/index.html">在线问答系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="id-index-banner">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">话题</a></li>
+          </ul>
+          <form class="navbar-form navbar-left">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="搜索话题">
+            </div>
+            <button type="submit" class="btn btn-default">搜索</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">提问</a></li>
+            <li><a href="#">消息<span class="badge">4</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">个人中心 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">我的主页</a></li>
+                <li><a href="#">设置</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">退出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+  <!-- // 顶部导航 -->
+  <!-- 顶部个人信息 -->
+  <div class="layout-personal">
+    <div class="container">
+      <div class="main-top">
+        <img src="./assets/home/qa/personal_top.jpg" alt="">
+      </div>
+      <div class="main-bottom">
+        <div class="content-left">
+          <img src="./assets/home/qa/personal_avatar.jpg" alt="">
+        </div>
+        <div class="content-right">
+          <h3>NavCat</h3>
+          <div class="desc">
+            创业是一次孤独的旅行
+          </div>
+          <div class="info-row">
+            <i class="glyphicon glyphicon-folder-close"></i> <span>计算软件</span>
+          </div>
+          <div class="info-row">
+            <i class="glyphicon glyphicon-certificate"></i> <span>男</span>
+          </div>
+          <button class="btn btn-default btn-gray" type="button">编辑个人资料</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // 顶部个人信息 -->
+  <div class="container layout-main">
+    <div class="row">
+      <div class="col-md-9">
+        <!-- 左侧内容区域 -->
+        <div class="main-left">
+          <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#">动态</a></li>
+            <li role="presentation"><a href="#">回答</a></li>
+            <li role="presentation" ><a href="#">收藏</a></li>
+            <li role="presentation" class="active"><a href="#">关注</a></li>
+            <li role="presentation"><a href="#">文章</a></li>
+          </ul>
+          <div class="title">我关注的问题</div>
+          <!-- 我关注的问题列表 -->
+          <ul class="flllow-qa-ls">
+            <li>
+              <a href="../../qa/templates/detail.html">疫情结束后会爆发消费狂潮吗？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+            <li>
+              <a href="../../qa/templates/detail.html">钟南山说「我们也做了疫情预测模型，投稿到国外权威期刊被退了回来」，你怎么看？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+            <li>
+              <a href="../../qa/templates/detail.html">疫情结束后会爆发消费狂潮吗？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+            <li>
+              <a href="../../qa/templates/detail.html">钟南山说「我们也做了疫情预测模型，投稿到国外权威期刊被退了回来」，你怎么看？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+            <li>
+              <a href="../../qa/templates/detail.html">疫情结束后会爆发消费狂潮吗？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+            <li>
+              <a href="../../qa/templates/detail.html">钟南山说「我们也做了疫情预测模型，投稿到国外权威期刊被退了回来」，你怎么看？</a>
+              <div class="stats">2020-3-1 · 15个回答 ·  20个关注</div>
+            </li>
+          </ul>
+          <!-- // 我关注的问题列表 -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="上一页">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="下一页">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- //左侧内容区域 -->
+      </div>
+      <div class="col-md-3">
+        <!-- 右侧内容区域 -->
+        <div class="main-right">
+          <!-- 关注统计 -->
+          <div class="follow-stats box-wrap">
+            <div>
+              <span>关注了</span>
+              <strong>12</strong>
+            </div>
+            <div>
+              <span>关注者</span>
+              <strong>12</strong>
+            </div>
+          </div>
+          <!-- // 关注统计 -->
+          <!-- 右侧页脚 -->
+          <div class="right-footer">
+            <a href="#">用户指南</a><span class="dot">·</span>
+            <a href="#">用户使用协议</a><span class="dot">·</span>
+            <a href="#">用户隐私权政策</a>
+            <br/>
+            <a href="#">侵权举报</a><span class="dot">·</span>
+            <a href="#">网上有害信息举报专区</a>
+            <br/>
+            <a href="#">京ICP证 第10001000号</a>
+            <br/>
+            <a href="#">京ICP备 第10001000号</a>
+            <br/>
+            <a href="#">联系我们 &copy; 2020在线问答</a>
+          </div>
+        <!-- //右侧页脚 -->
+        </div>
+        <!-- //右侧内容区域 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+  <script src="./assets/plugins/jquery-3.4.1.min.js"></script>
+  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{# 导入 自定义的宏 #}
+{% from 'macro/form_errors.html' import form_field_errors %}
+
+{% block title %}{{ super() }}-注册{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="/assets/style/login.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1658093_nokjvsp8hws.css">
+{% endblock %}
+
+{% block layout %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+                {# 展示 flash 消息 #}
+                <!-- 消息通知区域 -->
+                {% include 'components/flash_message.html' %}
+                <!-- // 消息通知区域 -->
+
+                <div class="login-header">
+                    <h2 class="title text-center">在线问答系统-注册</h2>
+                    <div class="slogan text-center">有问题 上问答</div>
+                </div>
+                <!-- 表单登录 -->
+                <form class="login-form box-wrap" method="POST" action="{{ url_for('accounts.register') }}"
+                      enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <label for="id-user-name">用户名</label>
+                        {{ form.username }}
+                    </div>
+                    {{ form_field_errors(form.username.errors) }}
+                    <div class="form-group">
+                        <label for="id-nick-name">昵称</label>
+                        {{ form.nickname }}
+                    </div>
+                    {{ form_field_errors(form.nickname.errors) }}
+                    <div class="form-group">
+                        <label for="id-password">密码</label>
+                        {{ form.password }}
+                    </div>
+                    {{ form_field_errors(form.password.errors) }}
+                    <div class="form-group">
+                        <label for="id-confirm-password">确认密码</label>
+                        {{ form.confirm_password }}
+                    </div>
+                    {{ form_field_errors(form.confirm_password.errors) }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info btn-block btn-lg">注册</button>
+                    </div>
+                    <p class="desc">未注册手机验证后自动登录<br/>
+                        注册即代表同意《用户使用协议》《隐私保护指引》</p>
+                    <p class="text-right">已有账号，<a href="{{ url_for('accounts.login') }}">点击登录</a></p>
+                </form>
+                <!-- //表单登录 -->
+                <!-- 社交账号登录 -->
+                <div class="login-social box-wrap">
+                    <span>社交账号登录</span>
+                    <div class="right">
+                        <span><i class="iconfont icon-wechat"></i>微信</span>
+                        <span><i class="iconfont icon-qq"></i>QQ</span>
+                        <span><i class="iconfont icon-weibo"></i>微博</span>
+                    </div>
+                </div>
+                <!-- //社交账号登录 -->
+                <!-- 页脚 -->
+                <div class="login-footer">
+                    <a href="">关于我们</a>
+                    <a href="">联系我们</a>
+                    <a href="">注册机构</a>
+                    <a href="">专栏</a>
+                    <br>
+                    <a href="">京ICP 备1000000012号</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

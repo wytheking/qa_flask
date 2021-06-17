@@ -1,0 +1,288 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}{{ super() }} - 首页{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="./assets/style/index.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="layout-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+
+                {# 展示 flash 消息 #}
+                <!-- 消息通知区域 -->
+                {% include 'components/flash_message.html' %}
+                <!-- // 消息通知区域 -->
+
+                <!-- banner图 -->
+                <div id="id-index-banner" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img class="img-responsive" src="/assets/home/banner/banner1.jpg" alt="banner图">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="/assets/home/banner/banner1.jpg" alt="banner图">
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#id-index-banner" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#id-index-banner" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- //banner图 -->
+
+                <!-- 分类菜单 -->
+                <div class="cls-menu-ls">
+                    <a href="#" class="active">推荐</a>
+                    <a href="{{ url_for('qa.follow') }}">关注</a>
+                    <a href="#">热榜</a>
+                </div>
+                <!-- //分类菜单 -->
+
+                <!-- 问题列表 -->
+                <div class="qa-ls">
+                    {% for answer in page_data.items %}
+                    {% with question=answer.question %}
+                    <div class="qa-item">
+                        <a href="{{ url_for('qa.detail', q_id=question.id) }}" class="title">{{ question.title }}</a>
+                        <div class="desc">
+                            {% if question.img %}
+                                <div class="left">
+                                    <img src="{{ question.get_img_url }}" alt="" srcset="">
+                                </div>
+                            {% endif %}
+                            <div class="right">
+                                <div class="show-desc">
+                                    {% autoescape false %}
+                                    {{ answer.content | safe | truncate(150) }}
+                                    {% endautoescape %}
+                                    <span class="more">阅读原文<i class="glyphicon glyphicon-menu-down"></i></span>
+                                </div>
+                                <div class="show-all hidden">
+                                    {% autoescape false %}
+                                    {{ answer.content | safe }}
+                                    {% endautoescape %}
+                                    <span class="more">收起<i class="glyphicon glyphicon-menu-up"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qa-footer">
+                            <div>
+                                <button type="button" class="btn btn-info btn-sm">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i> 赞同 {{ question.love_count }}
+                                </button>
+                            </div>
+                            <div class="txt-menu"><i
+                                    class="glyphicon glyphicon-comment"></i> {{ question.answer_count }}条回答
+                            </div>
+                            <div class="txt-menu"><i class="glyphicon glyphicon-send"></i>分享</div>
+                            <div class="txt-menu"><i class="glyphicon glyphicon-heart"></i>收藏</div>
+                            <div class="txt-menu"><i class="glyphicon glyphicon-flag"></i>举报</div>
+                            <div class="txt-menu btn-group">
+                                <i class="glyphicon glyphicon-option-horizontal dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"></i>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">不感兴趣</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+
+                <!-- 分页 -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-md-3">
+                <!-- 右侧菜单 -->
+                <div class="right-menu-box box-wrap">
+                    <a href="#" class="menu-item">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>写回答</span>
+                    </a>
+                    <a href="{{ url_for('qa.write') }}" class="menu-item">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span>写文章</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        <span>些想法</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="glyphicon glyphicon-play-circle"></i>
+                        <span>发视频</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="glyphicon glyphicon-adjust"></i>
+                        <span>稍后答</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="glyphicon glyphicon-file"></i>
+                        <span>草稿箱</span>
+                    </a>
+                </div>
+                <!-- 创作者入口 -->
+                <div class="right-creater-box box-wrap">
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span>草稿箱</span>
+                        </div>
+                        <div class="right">
+                            <span>去开通</span>
+                            <i class="glyphicon glyphicon-menu-right"></i>
+                        </div>
+                    </a>
+                </div>
+                <!-- 彩色菜单入口 -->
+                <div class="right-menu-box box-wrap">
+                    <a href="#" class="menu-item menu-live">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Live</span>
+                    </a>
+                    <a href="#" class="menu-item menu-store">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        <span>书店</span>
+                    </a>
+                    <a href="#" class="menu-item menu-table">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        <span>圆桌</span>
+                    </a>
+                    <a href="#" class="menu-item menu-special">
+                        <i class="glyphicon glyphicon-play-circle"></i>
+                        <span>专栏</span>
+                    </a>
+                    <a href="#" class="menu-item menu-consult">
+                        <i class="glyphicon glyphicon-adjust"></i>
+                        <span>付费咨询</span>
+                    </a>
+                    <a href="#" class="menu-item menu-wiki">
+                        <i class="glyphicon glyphicon-file"></i>
+                        <span>百科</span>
+                    </a>
+                </div>
+                <!-- // 彩色菜单入口 -->
+                <!-- 我的入口 -->
+                <div class="right-mine-box box-wrap">
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <span>我的收藏</span>
+                        </div>
+                        <div class="right">
+                            <span>0</span>
+                        </div>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-question-sign"></i>
+                            <span>我关注的问题</span>
+                        </div>
+                        <div class="right">
+                            <span>28</span>
+                        </div>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span>我的邀请</span>
+                        </div>
+                        <div class="right">
+                            <span>33</span>
+                        </div>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-yen"></i>
+                            <span>我的余额</span>
+                        </div>
+                        <div class="right">
+                        </div>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-king"></i>
+                            <span>站务中心</span>
+                        </div>
+                        <div class="right">
+                        </div>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <div class="left">
+                            <i class="glyphicon glyphicon-file"></i>
+                            <span>版权服务中心</span>
+                        </div>
+                        <div class="right">
+                        </div>
+                    </a>
+                </div>
+                <!-- //我的入口 -->
+                <!-- 右侧页脚 -->
+                <div class="right-footer">
+                    <a href="#">用户指南</a><span class="dot">·</span>
+                    <a href="#">用户使用协议</a><span class="dot">·</span>
+                    <a href="#">用户隐私权政策</a>
+                    <br/>
+                    <a href="#">侵权举报</a><span class="dot">·</span>
+                    <a href="#">网上有害信息举报专区</a>
+                    <br/>
+                    <a href="#">京ICP证 第10001000号</a>
+                    <br/>
+                    <a href="#">京ICP备 第10001000号</a>
+                    <br/>
+                    <a href="#">联系我们 &copy; 2020在线问答</a>
+                </div>
+                <!-- //右侧页脚 -->
+            </div>
+        </div>
+    </div>
+    <!-- // container -->
+</div>
+
+{% endblock %}
+
+{% block js_inline %}
+
+    // 点击，查看更多，把详细的那个p标签展示出来，把自己隐藏
+    $('.show-desc').click(function () {
+    $(this).addClass('hidden');
+    $(this).next().removeClass('hidden');
+    })
+    $('.show-all').click(function () {
+    $(this).addClass('hidden');
+    $(this).prev().removeClass('hidden');
+    })
+
+{% endblock %}

@@ -1,0 +1,186 @@
+
+/****** 顶部问题简述 */
+.layout-question {
+    background-color: #fff;
+    padding: 20px 0 10px 0;
+    margin-top: -20px;
+}
+.que-tag-ls {
+    list-style: none;
+    padding: 0;
+}
+.que-tag-ls li{
+    display: inline;
+    color: #0084ff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #E5F2FF;
+    margin: 0;
+}
+.que-tag-ls li a {
+    text-decoration: none;
+}
+/* 隐藏与现实内容 */
+.show-all,
+.show-desc {
+    color: #1a1a1a;
+}
+.show-all .btn-show-less,
+.show-desc .btn-show-more {
+    color: #8590a6;
+    cursor: pointer;
+}
+/* 菜单 */
+.que-menu-box {
+    display: flex;
+    align-items: center;
+}
+.que-menu-box  > div {
+    margin-right: 10px;
+}
+.que-menu-box .txt-menu {
+    color: #8590a6;
+}
+
+/* 右侧统计菜单 */
+.que-stats-box {
+    display: flex;
+    flex-direction: row;
+}
+.que-stats-box > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.que-stats-box > div:first-child{
+    border-right: 1px solid #f0f2f7;
+}
+.question-box span{
+    font-size: 13px;
+    color: #8590a6;
+}
+
+/******* 答案区域  */
+.layout-answer{
+    background-color: #f6f6f6;
+    min-height: 1000px;
+}
+.layout-answer .link-more {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.layout-answer .answer-content {
+    margin-top: 10px;
+    padding: 15px;
+}
+/* 用户信息 */
+.user-info {
+    display: flex;
+    flex-direction: row;
+}
+.user-info .avater {
+    flex: none;
+}
+.user-info .avater img {
+    width: 100%;
+    height: 100%;
+}
+.user-info .desc {
+    padding-left: 10px;
+    overflow: hidden;
+}
+.user-info .desc h4 {
+    margin-top: 0;
+}
+.user-info .desc p {
+    color: #646464;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.answer-content .user-info .avater {
+    width: 30px;
+    height: 30px;
+}
+.answer-content .user-info h4 {
+    font-size: 13px;
+    margin: 0;
+}
+.answer-content .user-info p {
+    font-size: 12px;
+}
+.answer-content .answer-stats{
+    color: #8590a6;
+}
+.answer-content .answer-txt{
+    padding-top: 15px;
+}
+.answer-content .answer-time {
+    color: #8590a6;
+    font-size: 12px;
+}
+
+/* **** 右侧关于作者*****  */
+.right-content  .about-user {
+    padding: 15px;
+    margin-top: 10px;
+}
+.about-user .user-info .avater {
+    width: 50px;
+    height: 50px;
+}
+/* 数据统计 */
+.about-user .qa-stats {
+    display: flex;
+    margin-top: 10px;
+}
+.about-user .qa-stats div {
+    flex: 1;
+    text-align: center;
+}
+.about-user .qa-stats span{
+    color: #8590a6;
+    font-size: 12px;
+}
+.about-user .qa-stats span,
+.about-user .qa-stats strong {
+    display: inline-block;
+    width: 100%;
+}
+.about-user .menu-ls {
+    display: flex;
+    margin-top: 15px;
+}
+.about-user .menu-ls div {
+    flex: 1;
+    padding: 5px;
+}
+.about-user .menu-ls a {
+    display: block;
+}
+
+/*  相关问题 */
+.rel-ques {
+    padding: 15px;
+    margin-top: 10px;
+}
+.rel-ques .title {
+    font-weight: bold;
+}
+.rel-ques .rel-que-ls > div {
+    font-size: 12px;
+    padding: 5px 0;
+}
+.rel-ques .rel-que-ls a{
+    color: #175199;
+    text-decoration: none;
+}
+.rel-ques .rel-que-ls span{
+    color: #8590a6;
+}

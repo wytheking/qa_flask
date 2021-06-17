@@ -1,0 +1,91 @@
+/* 个人中心 */
+.layout { padding-top: 60px; }
+
+/* 顶部背景图 */
+.layout-personal .main-top{
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+}
+.layout-personal .main-top img{
+    width: 100%;
+    height: auto;
+}
+.layout-personal .main-bottom {
+    position: relative;
+    padding-left: 200px;
+    background-color: #fff;
+    height: 140px;
+}
+.main-bottom .content-left {
+    width: 160px;
+    height: 160px;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+    top: -30px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.main-bottom .content-left img {
+    width: 100%;
+    height: 100%;
+}
+.main-bottom h3 {
+    margin: 0;
+    padding: 10px 0;
+}
+.main-bottom .desc {
+    padding: 3px 0;
+}
+.main-bottom .info-row {
+    color: #8590a6;
+    padding: 3px 0;
+}
+.main-bottom .btn-default {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.layout-main .main-left {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 10px;
+}
+.layout-main .title {
+    font-weight: bold;
+    padding: 15px 0;
+}
+/* 关注的问题列表 */
+.flllow-qa-ls {
+    padding: 0;
+    list-style: none;
+}
+.flllow-qa-ls li {
+    border-bottom: 1px solid #f6f6f6;
+    padding: 10px 0;
+}
+.flllow-qa-ls li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.flllow-qa-ls li div {
+    color: #8590a6;
+}
+
+/* 右侧关注统计 */
+.follow-stats {
+    display: flex;
+    margin-top: 10px;
+    padding: 15px;
+}
+.follow-stats div {
+    flex:1;
+    text-align: center;
+}
+.follow-stats div span {
+    display: block;
+    color: #8590a6;
+}

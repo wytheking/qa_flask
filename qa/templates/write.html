@@ -1,0 +1,74 @@
+{% extends 'base_layout.html' %}
+
+{# 导入 自定义的宏 #}
+{% from 'macro/form_errors.html' import form_field_errors %}
+
+{% block title %}{{ super() }} - 写文章{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="/assets/style/write.css">
+{% endblock %}
+
+{% block content %}
+    <!-- // 顶部导航 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                {# 展示 flash 消息 #}
+                <!-- 消息通知区域 -->
+                {% include 'components/flash_message.html' %}
+                <!-- // 消息通知区域 -->
+
+                <form class="form-horizontal write-form" action="{{ url_for('qa.write') }}" method="POST"
+                      enctype="multipart/form-data">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info pull-right">发布</button>
+                    </div>
+                    <div class="form-group">
+                        <label class="upload-file">
+                            {{ form.img }}
+                            <i class="glyphicon glyphicon-camera"></i>
+                        </label>
+                    </div>
+                    {{ form_field_errors(form.img.errors) }}
+                    <div class="form-group">
+                        {{ form.title }}
+                    </div>
+                    {{ form_field_errors(form.title.errors) }}
+                    <div class="form-group">
+                        {{ form.tags }}
+                    </div>
+                    {{ form_field_errors(form.tags.errors) }}
+                    <div class="form-group">
+                        {{ form.desc }}
+                    </div>
+                    {{ form_field_errors(form.desc.errors) }}
+                    <div class="form-group">
+                        {{ form.content }}
+                        {{ ckeditor.load() }}
+                        {{ ckeditor.config(name='content') }}
+                    </div>
+                    {{ form_field_errors(form.content.errors) }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_extra %}
+    <script>
+        $(function () {
+            // 文件选择后，在浏览器中预览
+            $('input[type=file]').change(function () {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function () {
+                    $('.upload-file').css('background-image', 'url(' + reader.result + ')')
+                }
+                reader.readAsDataURL(file);
+            })
+        })
+    </script>
+{% endblock %}
